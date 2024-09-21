@@ -2,8 +2,8 @@
   "use strict";
 
   // PRE LOADER
-  $(window).load(function() {
-    $('.preloader').fadeOut(1000); // Set duration in milliseconds    
+  $(window).on('load', function() {
+    $('.preloader').fadeOut(1000); // Preloader fades after 1 second
   });
 
   // MENU TOGGLE
@@ -27,33 +27,34 @@
 
   // COUNTDOWN FUNCTION
   $(".countdown").countdown({
-    date: "23 September 2024 10:00:00",  // The date of the event
+    date: "September 23, 2024 10:00:00",  // Date format correction
     format: "on"
   }, function() {
-    // When countdown finishes, this callback will trigger
+    // When countdown finishes, show the download button for the first program
     $('#program-buttons').html('<button>Download Sunday Program</button>');
   });
 
   // DISPLAY PROGRAM BUTTONS BASED ON TIME
   let currentTime = new Date();
 
-  // Check the current time and display the appropriate buttons
+  // Show the first button at 10:00 AM to 12:00 PM
   if (currentTime.getHours() >= 10 && currentTime.getHours() < 12) {
     $('#program-buttons').html('<button id="btn-program1">Download Program 1</button>');
   }
 
+  // After 12:00 PM, show the second button
   if (currentTime.getHours() >= 12) {
     $('#program-buttons').html('<button id="btn-program2">Download Program 2</button>');
   }
 
   // START A COUNTDOWN AT 6:00 PM ON SEPTEMBER 23 FOR SEPTEMBER 24, 10:00 AM
-  let countdownStart = new Date('23 September 2024 18:00:00');
+  let countdownStart = new Date('September 23, 2024 18:00:00');
   if (currentTime >= countdownStart) {
     $(".countdown").countdown({
-      date: "24 September 2024 10:00:00",
+      date: "September 24, 2024 10:00:00",
       format: "on"
     }, function() {
-      // When countdown finishes, show download button for the Sunday General Session
+      // When countdown finishes, show the download button for the Sunday General Session
       $('#program-buttons').html('<button id="btn-general-session">Download Sunday General Session</button>');
     });
 
