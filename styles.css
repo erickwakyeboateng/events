@@ -23,7 +23,7 @@ body {
     z-index: -1;
     display: flex;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay with transparency */
+    background: rgba(255, 255, 255, 0.5); /* Dark overlay with transparency */
 }
 
 .slider-image {
