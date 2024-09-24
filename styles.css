@@ -23,6 +23,7 @@ body {
     z-index: -1;
     display: flex;
     overflow: hidden;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay with transparency */
 }
 
 .slider-image {
@@ -32,11 +33,22 @@ body {
     object-fit: cover;
     opacity: 0; /* Hide all images initially */
     transition: opacity 1s ease; /* Smooth transition */
+    animation: kenburns 10s infinite; /* Ken Burns Effect */
 }
 
-/* Show the first image */
+/* Show the active image */
 .slider-image.active {
-    opacity: 1; /* Show the active image */
+    opacity: 1;
+}
+
+/* Ken Burns Effect */
+@keyframes kenburns {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
 }
 
 /* Content Section */
@@ -95,4 +107,46 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+        height: auto;
+    }
+
+    .content {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .program-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    #countdown {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .program-btn {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    #countdown {
+        flex-direction: column;
+        font-size: 0.8rem;
+    }
+
+    .countdown-item {
+        padding: 0.3rem 0.6rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
 }
