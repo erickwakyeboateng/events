@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
     backgroundMusic.volume = 0.5; // Set volume to a reasonable level
 
     // Event times in milliseconds
-    const leadershipTime = new Date('September 24, 2024 19:55:00').getTime();
-    const adultTime = new Date('September 24, 2024 19:55:00').getTime();
-    const countdownResumeTime = new Date('September 24, 2024 20:10:00').getTime();
-    const generalTime = new Date('September 24, 2024 20:15:00').getTime();
+    const leadershipTime = new Date('September 24, 2024 20:15:00').getTime();
+    const adultTime = new Date('September 24, 2024 20:20:00').getTime();
+    const countdownResumeTime = new Date('September 24, 2024 20:30:00').getTime();
+    const generalTime = new Date('September 24, 2024 20:45:00').getTime();
 
     // Update every second
     const updateUI = setInterval(function() {
