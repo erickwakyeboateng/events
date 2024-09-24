@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaneshie Stake Conference Countdown</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Background Overlay for Slider -->
+    <div class="overlay">
+        <img src="images/Jesus.jpeg" alt="Slider Image 1" class="slider-image">
+        <img src="images/Nephites.jpeg" alt="Slider Image 2" class="slider-image">
+        <img src="images/jesus_christ_feed_my_sheep.jpeg" alt="Slider Image 3" class="slider-image">
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="content">
+        <h1>Kaneshie Stake Conference Countdown</h1>
+
+        <!-- Message area that changes as per time -->
+        <p id="message">Counting down to the Leadership Training Program</p>
+
+        <!-- Countdown Timer Section -->
+        <div id="countdown" style="display: none;">
+            <div class="countdown-item">
+                <span id="days">0</span> <span class="unit">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span id="hours">0</span> <span class="unit">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes">0</span> <span class="unit">Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds">0</span> <span class="unit">Seconds</span>
+            </div>
+        </div>
+
+        <!-- Program buttons that will appear at specific times -->
+        <div class="button-container">
+            <button id="leadership-btn" class="program-btn" style="display:none;">
+                Download Leadership Training Program
+            </button>
+
+            <button id="adult-btn" class="program-btn" style="display:none;">
+                Download Adult Session Program
+            </button>
+
+            <button id="general-btn" class="program-btn" style="display:none;">
+                Download General Sunday Session Program
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer with credit -->
+    <footer>
+        Designed by <a href="https://www.linkedin.com/in/erickwakyeboateng" target="_blank">Eric</a>, © <span id="year"></span>
+    </footer>
+
+    <!-- Load JavaScript file -->
+    <script src="script.js"></script>
+
+    <!-- Background music that plays during countdown -->
+    <audio id="background-music" loop>
+        <source src="come_thou_fount_of_every_blessing.mp3" type="audio/mp3">
+    </audio>
+</body>
+</html>
