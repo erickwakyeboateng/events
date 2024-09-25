@@ -78,13 +78,13 @@ body {
 /* Adjust font size in media queries if needed */
 @media (max-width: 768px) {
     #countdown {
-        font-size: 1.5rem; /* Keep it bold on medium devices */
+        font-size: 24px; /* Keep it bold on medium devices */
     }
 }
 
 @media (max-width: 480px) {
     #countdown {
-        font-size: 1.2rem; /* Keep it bold on smaller devices */
+        font-size: 12px; /* Keep it bold on smaller devices */
     }
 }
 
