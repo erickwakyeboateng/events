@@ -64,6 +64,7 @@ body {
     justify-content: center;
     gap: 10px;
     font-size: 1.5rem;
+    flex-direction: row; /* Ensure items are horizontal */
 }
 
 .countdown-item {
@@ -71,8 +72,22 @@ body {
     border-radius: 10px;
     background-color: transparent;
     color: #ffff; 
-    font-weight: bold;
+    font-weight: bold; /* Make it bold */
 }
+
+/* Adjust font size in media queries if needed */
+@media (max-width: 768px) {
+    #countdown {
+        font-size: 1.5rem; /* Keep it bold on medium devices */
+    }
+}
+
+@media (max-width: 480px) {
+    #countdown {
+        font-size: 1.2rem; /* Keep it bold on smaller devices */
+    }
+}
+
 
 /* Button Styles */
 .program-btn {
