@@ -33,24 +33,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize the background music
     const backgroundMusic = document.getElementById('background-music');
-    backgroundMusic.volume = 0.5; // Set volume to a reasonable level
+    backgroundMusic.volume = 0.2; // Set volume to a reasonable level
 
     // Event times in milliseconds
-    const leadershipTime = new Date('September 28, 2024 10:00:00').getTime();
-    const adultTime = new Date('September 28, 2024 12:00:00').getTime();
-    const countdownResumeTime = new Date('September 28, 2024 15:00:00').getTime();
-    const generalTime = new Date('September 29, 2024 10:00:00').getTime();
+    const adultTime = new Date('September 26, 2024 10:30:00').getTime(); // Adult session first
+    const leadershipTime = new Date('September 28, 2024 13:00:00').getTime(); // Leadership second
+    const countdownResumeTime = new Date('September 28, 2024 15:30:00').getTime(); // Resume countdown
+    const generalTime = new Date('September 29, 2024 09:40:00').getTime(); // Sunday General Session
 
     // Update every second
     const updateUI = setInterval(function() {
         const now = new Date().getTime();
 
-        // Countdown to Leadership Training Program
-        if (now < leadershipTime) {
+        // Countdown to Adult Session
+        if (now < adultTime) {
             countdownElement.style.display = 'flex'; // Show countdown
-            leadershipBtn.style.display = 'none';
-            message.textContent = 'Counting down to the Leadership Training Program';
-            showCountdown(leadershipTime);
+            adultBtn.style.display = 'none';
+            message.textContent = 'Counting down to the Adult Session';
+            showCountdown(adultTime);
 
             // Play music when countdown is active, but only if it's not already playing
             if (backgroundMusic.paused) {
@@ -60,25 +60,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // At Leadership Time, show Leadership button
-        else if (now >= leadershipTime && now < adultTime) {
-            countdownElement.style.display = 'none'; // Hide countdown
-            leadershipBtn.style.display = 'block'; // Show Leadership button
-            message.textContent = 'Download Leadership Training Program';
-            backgroundMusic.pause(); // Pause music when countdown is not active
-        }
-
         // At Adult Time, show Adult Session Program button
-        else if (now >= adultTime && now < countdownResumeTime) {
-            leadershipBtn.style.display = 'none'; // Hide Leadership button
+        else if (now >= adultTime && now < leadershipTime) {
+            countdownElement.style.display = 'none'; // Hide countdown
             adultBtn.style.display = 'block'; // Show Adult button
             message.textContent = 'Download Adult Session Program';
             backgroundMusic.pause(); // Pause music when countdown is not active
         }
 
+        // At Leadership Time, show Leadership Training Program button
+        else if (now >= leadershipTime && now < countdownResumeTime) {
+            adultBtn.style.display = 'none'; // Hide Adult button
+            leadershipBtn.style.display = 'block'; // Show Leadership button
+            message.textContent = 'Download Leadership Training Program';
+            backgroundMusic.pause(); // Pause music when countdown is not active
+        }
+
         // At Countdown Resume Time, show countdown for General Sunday Session
         else if (now >= countdownResumeTime && now < generalTime) {
-            adultBtn.style.display = 'none'; // Hide Adult button
+            leadershipBtn.style.display = 'none'; // Hide Leadership button
             countdownElement.style.display = 'flex'; // Show countdown again
             message.textContent = 'Countdown to General Sunday Session';
             showCountdown(generalTime);
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
+// Manual trigger for music
 document.getElementById('play-music').addEventListener('click', function() {
     const backgroundMusic = document.getElementById('background-music');
     backgroundMusic.play().catch(error => {
