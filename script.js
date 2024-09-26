@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (now >= countdownResumeTime && now < generalTime) {
             leadershipBtn.style.display = 'none'; // Hide Leadership button
             countdownElement.style.display = 'flex'; // Show countdown again
-            message.textContent = 'Countdown to General Sunday Session';
+            message.textContent = 'Countdown to Sunday General Session';
             showCountdown(generalTime);
 
             // Play music when countdown is active, but only if it's not already playing
