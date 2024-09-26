@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (now >= leadershipTime && now < countdownResumeTime) {
             adultBtn.style.display = 'none'; // Hide Adult button
             leadershipBtn.style.display = 'block'; // Show Leadership button
-            message.textContent = 'Download Leadership Training Program';
+            message.textContent = 'Download Council Meeting Program';
             backgroundMusic.pause(); // Pause music when countdown is not active
         }
 
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (now >= generalTime) {
             countdownElement.style.display = 'none'; // Hide countdown
             generalBtn.style.display = 'block'; // Show General Session button
-            message.textContent = 'Download General Sunday Session Program';
+            message.textContent = 'Download Sunday General Session Program';
             clearInterval(updateUI); // Stop the interval once the final button is displayed
             backgroundMusic.pause(); // Pause music when countdown ends
         }
