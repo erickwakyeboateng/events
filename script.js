@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     backgroundMusic.volume = 0.2; // Set volume to a reasonable level
 
     // Event times in milliseconds
-    const adultTime = new Date('September 26, 2024 10:30:00').getTime(); // Adult session first
+    const adultTime = new Date('September 28, 2024 10:30:00').getTime(); // Adult session first
     const leadershipTime = new Date('September 28, 2024 13:00:00').getTime(); // Leadership second
     const countdownResumeTime = new Date('September 28, 2024 15:30:00').getTime(); // Resume countdown
     const generalTime = new Date('September 29, 2024 09:40:00').getTime(); // Sunday General Session
