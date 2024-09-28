@@ -159,6 +159,11 @@ body {
     box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
 }
 
+button, a {
+    text-decoration: none !important;
+    border: none;
+}
+
 /* Button Responsiveness for large devices (e.g., desktop) */
 @media (min-width: 1200px) {
     .program-btn {
