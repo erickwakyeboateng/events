@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const images = document.querySelectorAll('.slider-image');
     let currentIndex = 0;
 
@@ -7,20 +7,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to change the image
     function changeImage() {
-        // Hide the current image
         images[currentIndex].classList.remove('active');
-
-        // Move to the next image
         currentIndex = (currentIndex + 1) % images.length;
-
-        // Show the next image
         images[currentIndex].classList.add('active');
     }
 
-    // Change image every 5 seconds (5000 milliseconds)
+    // Change image every 5 seconds
     setInterval(changeImage, 5000);
 
-    const leadershipBtn = document.getElementById('leadership-btn');
+    // DOM elements
+    const priesthoodBtn = document.getElementById('leadership-btn');
     const adultBtn = document.getElementById('adult-btn');
     const generalBtn = document.getElementById('general-btn');
     const message = document.getElementById('message');
@@ -31,28 +27,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const minutesElement = document.getElementById('minutes');
     const secondsElement = document.getElementById('seconds');
 
-    // Initialize the background music
+    // Background music
     const backgroundMusic = document.getElementById('background-music');
-    backgroundMusic.volume = 0.2; // Set volume to a reasonable level
+    backgroundMusic.volume = 0.2;
 
-    // Event times in milliseconds
-    const adultTime = new Date('May 08, 2025 12:50:00').getTime(); // Adult session first
-    const leadershipTime = new Date('May 08, 2025 12:53:00').getTime(); // Leadership second
-    const countdownResumeTime = new Date('May 08, 2025 12:55:00').getTime(); // Resume countdown
-    const generalTime = new Date('May 08, 2025 12:58:00').getTime(); // Sunday General Session
+    // Event times
+    const priesthoodTime = new Date('May 10, 2025 10:30:00').getTime();
+    const adultTime = new Date('May 10, 2025 13:30:00').getTime();
+    const countdownResumeTime = new Date('May 10, 2025 16:10:00').getTime();
+    const generalTime = new Date('May 11, 2025 09:30:00').getTime();
 
-    // Update every second
-    const updateUI = setInterval(function() {
+    // UI update every second
+    const updateUI = setInterval(function () {
         const now = new Date().getTime();
 
-        // Countdown to Adult Session
-        if (now < adultTime) {
-            countdownElement.style.display = 'flex'; // Show countdown
-            adultBtn.style.display = 'none';
+        // Countdown to Priesthood Session
+        if (now < priesthoodTime) {
+            countdownElement.style.display = 'flex';
+            priesthoodBtn.style.display = 'none';
             message.textContent = 'Counting down to the Priesthood Session';
-            showCountdown(adultTime);
+            showCountdown(priesthoodTime);
 
-            // Play music when countdown is active, but only if it's not already playing
             if (backgroundMusic.paused) {
                 backgroundMusic.play().catch(error => {
                     console.log("Playback prevented:", error);
@@ -60,30 +55,29 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // At Adult Time, show Adult Session Program button
-        else if (now >= adultTime && now < leadershipTime) {
-            countdownElement.style.display = 'none'; // Hide countdown
-            adultBtn.style.display = 'block'; // Show Adult button
-            message.textContent = 'Download Adult Priesthood Session Program';
-            backgroundMusic.pause(); // Pause music when countdown is not active
+        // Show Priesthood Session Program
+        else if (now >= priesthoodTime && now < adultTime) {
+            countdownElement.style.display = 'none';
+            priesthoodBtn.style.display = 'block';
+            message.textContent = 'Download Priesthood Session Program';
+            backgroundMusic.pause();
         }
 
-        // At Leadership Time, show Leadership Training Program button
-        else if (now >= leadershipTime && now < countdownResumeTime) {
-            adultBtn.style.display = 'none'; // Hide Adult button
-            leadershipBtn.style.display = 'block'; // Show Leadership button
+        // Show Adult Session Program
+        else if (now >= adultTime && now < countdownResumeTime) {
+            priesthoodBtn.style.display = 'none';
+            adultBtn.style.display = 'block';
             message.textContent = 'Download Adult Session Program';
-            backgroundMusic.pause(); // Pause music when countdown is not active
+            backgroundMusic.pause();
         }
 
-        // At Countdown Resume Time, show countdown for General Sunday Session
+        // Resume countdown to General Sunday Session
         else if (now >= countdownResumeTime && now < generalTime) {
-            leadershipBtn.style.display = 'none'; // Hide Leadership button
-            countdownElement.style.display = 'flex'; // Show countdown again
+            adultBtn.style.display = 'none';
+            countdownElement.style.display = 'flex';
             message.textContent = 'Countdown to Sunday General Session';
             showCountdown(generalTime);
 
-            // Play music when countdown is active, but only if it's not already playing
             if (backgroundMusic.paused) {
                 backgroundMusic.play().catch(error => {
                     console.log("Playback prevented:", error);
@@ -91,13 +85,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // At General Time, show General Sunday Session button
+        // Show General Sunday Session Program
         else if (now >= generalTime) {
-            countdownElement.style.display = 'none'; // Hide countdown
-            generalBtn.style.display = 'block'; // Show General Session button
+            countdownElement.style.display = 'none';
+            generalBtn.style.display = 'block';
             message.textContent = 'Download Sunday General Session Program';
-            clearInterval(updateUI); // Stop the interval once the final button is displayed
-            backgroundMusic.pause(); // Pause music when countdown ends
+            clearInterval(updateUI);
+            backgroundMusic.pause();
         }
     }, 1000);
 
@@ -112,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-            // Update countdown display
             daysElement.innerText = days;
             hoursElement.innerText = hours;
             minutesElement.innerText = minutes;
@@ -126,8 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Manual trigger for music
-document.getElementById('play-music').addEventListener('click', function() {
+// Manual music trigger
+document.getElementById('play-music').addEventListener('click', function () {
     const backgroundMusic = document.getElementById('background-music');
     backgroundMusic.play().catch(error => {
         console.log("Playback prevented:", error);
