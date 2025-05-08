@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
     backgroundMusic.volume = 0.2; // Set volume to a reasonable level
 
     // Event times in milliseconds
-    const adultTime = new Date('September 28, 2024 10:30:00').getTime(); // Adult session first
-    const leadershipTime = new Date('September 28, 2024 13:00:00').getTime(); // Leadership second
-    const countdownResumeTime = new Date('September 28, 2024 15:30:00').getTime(); // Resume countdown
-    const generalTime = new Date('September 29, 2024 09:40:00').getTime(); // Sunday General Session
+    const adultTime = new Date('May 08, 2025 12:50:00').getTime(); // Adult session first
+    const leadershipTime = new Date('May 08, 2025 12:53:00').getTime(); // Leadership second
+    const countdownResumeTime = new Date('May 08, 2025 12:55:00').getTime(); // Resume countdown
+    const generalTime = new Date('May 08, 2025 12:58:00').getTime(); // Sunday General Session
 
     // Update every second
     const updateUI = setInterval(function() {
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (now < adultTime) {
             countdownElement.style.display = 'flex'; // Show countdown
             adultBtn.style.display = 'none';
-            message.textContent = 'Counting down to the Adult Session';
+            message.textContent = 'Counting down to the Priesthood Session';
             showCountdown(adultTime);
 
             // Play music when countdown is active, but only if it's not already playing
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (now >= adultTime && now < leadershipTime) {
             countdownElement.style.display = 'none'; // Hide countdown
             adultBtn.style.display = 'block'; // Show Adult button
-            message.textContent = 'Download Adult Session Program';
+            message.textContent = 'Download Adult Priesthood Session Program';
             backgroundMusic.pause(); // Pause music when countdown is not active
         }
 
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (now >= leadershipTime && now < countdownResumeTime) {
             adultBtn.style.display = 'none'; // Hide Adult button
             leadershipBtn.style.display = 'block'; // Show Leadership button
-            message.textContent = 'Download Council Meeting Program';
+            message.textContent = 'Download Adult Session Program';
             backgroundMusic.pause(); // Pause music when countdown is not active
         }
 
