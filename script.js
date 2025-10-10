@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (now < priesthoodTime) {
             countdownElement.style.display = 'flex';
             priesthoodBtn.style.display = 'none';
-            message.textContent = 'PRIESTHOOD SESSION PROGRAM AVAILABLE SOON';
+            message.textContent = 'PRIESTHOOD SESSION PROGRAM AVAILABLE IN';
             showCountdown(priesthoodTime);
 
             if (backgroundMusic.paused) {
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (now >= countdownResumeTime && now < generalTime) {
             adultBtn.style.display = 'none';
             countdownElement.style.display = 'flex';
-            message.textContent = 'SUNDAY SESSION PROGRAM AVAILABLE SOON';
+            message.textContent = 'SUNDAY SESSION PROGRAM AVAILABLE IN';
             showCountdown(generalTime);
 
             if (backgroundMusic.paused) {
