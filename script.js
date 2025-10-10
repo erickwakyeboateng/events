@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
     backgroundMusic.volume = 0.2;
 
     // Event times
-    const priesthoodTime = new Date('Oct 10, 2025 13:25:00').getTime();
-    const adultTime = new Date('Oct 10, 2025 13:26:00').getTime();
-    const countdownResumeTime = new Date('Oct 10, 2025 13:27:00').getTime();
-    const generalTime = new Date('Oct 10, 2025 13:28:00').getTime();
+    const priesthoodTime = new Date('Oct 10, 2025 13:50:00').getTime();
+    const adultTime = new Date('Oct 10, 2025 13:52:00').getTime();
+    const countdownResumeTime = new Date('Oct 10, 2025 13:53:00').getTime();
+    const generalTime = new Date('Oct 10, 2025 13:54:00').getTime();
 
     // UI update every second
     const updateUI = setInterval(function () {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (now < priesthoodTime) {
             countdownElement.style.display = 'flex';
             priesthoodBtn.style.display = 'none';
-            message.textContent = 'Countdown to the PRIESTHOOD SESSION';
+            message.textContent = 'PRIESTHOOD SESSION PROGRAM AVAILABLE SOON';
             showCountdown(priesthoodTime);
 
             if (backgroundMusic.paused) {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (now >= priesthoodTime && now < adultTime) {
             countdownElement.style.display = 'none';
             priesthoodBtn.style.display = 'block';
-            message.textContent = 'Download Priesthood Session Program';
+            message.textContent = 'Download Program';
             backgroundMusic.pause();
         }
 
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (now >= adultTime && now < countdownResumeTime) {
             priesthoodBtn.style.display = 'none';
             adultBtn.style.display = 'block';
-            message.textContent = 'Download Adult Session Program';
+            message.textContent = 'Download Program';
             backgroundMusic.pause();
         }
 
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (now >= countdownResumeTime && now < generalTime) {
             adultBtn.style.display = 'none';
             countdownElement.style.display = 'flex';
-            message.textContent = 'Countdown to SUNDAY GENERAL SESSION';
+            message.textContent = 'SUNDAY SESSION PROGRAM AVAILABLE SOON';
             showCountdown(generalTime);
 
             if (backgroundMusic.paused) {
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (now >= generalTime) {
             countdownElement.style.display = 'none';
             generalBtn.style.display = 'block';
-            message.textContent = 'Download Sunday General Session Program';
+            message.textContent = 'Download Program';
             clearInterval(updateUI);
             backgroundMusic.pause();
         }
