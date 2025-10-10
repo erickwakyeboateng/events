@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
     backgroundMusic.volume = 0.2;
 
     // Event times
-    const priesthoodTime = new Date('Oct 10, 2025 13:50:00').getTime();
-    const adultTime = new Date('Oct 10, 2025 13:52:00').getTime();
-    const countdownResumeTime = new Date('Oct 10, 2025 13:53:00').getTime();
-    const generalTime = new Date('Oct 10, 2025 13:54:00').getTime();
+    const priesthoodTime = new Date('Oct 11, 2025 09:30:00').getTime();
+    const adultTime = new Date('Oct 11, 2025 12:00:00').getTime();
+    const countdownResumeTime = new Date('Oct 11, 2025 14:30:00').getTime();
+    const generalTime = new Date('Oct 12, 2025 09:30:00').getTime();
 
     // UI update every second
     const updateUI = setInterval(function () {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (now < priesthoodTime) {
             countdownElement.style.display = 'flex';
             priesthoodBtn.style.display = 'none';
-            message.textContent = 'PRIESTHOOD SESSION PROGRAM AVAILABLE IN';
+            message.textContent = 'PRIESTHOOD SESSION PROGRAM WILL BE AVAILABLE IN';
             showCountdown(priesthoodTime);
 
             if (backgroundMusic.paused) {
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (now >= countdownResumeTime && now < generalTime) {
             adultBtn.style.display = 'none';
             countdownElement.style.display = 'flex';
-            message.textContent = 'SUNDAY SESSION PROGRAM AVAILABLE IN';
+            message.textContent = 'SUNDAY SESSION PROGRAM WILL BE AVAILABLE IN';
             showCountdown(generalTime);
 
             if (backgroundMusic.paused) {
