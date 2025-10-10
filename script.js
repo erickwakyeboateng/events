@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
     backgroundMusic.volume = 0.2;
 
     // Event times
-    const priesthoodTime = new Date('May 10, 2025 10:30:00').getTime();
-    const adultTime = new Date('May 10, 2025 13:30:00').getTime();
-    const countdownResumeTime = new Date('May 10, 2025 16:10:00').getTime();
-    const generalTime = new Date('May 11, 2025 09:30:00').getTime();
+    const priesthoodTime = new Date('Oct 10, 2025 13:25:00').getTime();
+    const adultTime = new Date('Oct 10, 2025 13:26:00').getTime();
+    const countdownResumeTime = new Date('Oct 10, 2025 13:27:00').getTime();
+    const generalTime = new Date('Oct 10, 2025 13:28:00').getTime();
 
     // UI update every second
     const updateUI = setInterval(function () {
