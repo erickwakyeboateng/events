@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (now >= priesthoodTime && now < adultTime) {
             countdownElement.style.display = 'none';
             priesthoodBtn.style.display = 'block';
-            message.textContent = 'Download Program';
+            message.textContent = 'PRIESTHOOD SESSION';
             backgroundMusic.pause();
         }
 
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (now >= adultTime && now < countdownResumeTime) {
             priesthoodBtn.style.display = 'none';
             adultBtn.style.display = 'block';
-            message.textContent = 'Download Program';
+            message.textContent = 'ADULT SESSION';
             backgroundMusic.pause();
         }
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (now >= generalTime) {
             countdownElement.style.display = 'none';
             generalBtn.style.display = 'block';
-            message.textContent = 'Download Program';
+            message.textContent = 'SUNDAY GENERAL SESSION';
             clearInterval(updateUI);
             backgroundMusic.pause();
         }
